@@ -1,0 +1,72 @@
+/* order-table */
+
+.order-table {
+    border: 1px solid #353839;
+    border-radius: 15px;
+    margin-top: -30px;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.items {
+    font-family: 'Mont Regular', sans-serif;
+}
+
+.special {
+    font-family: 'Mont Bold', sans-serif;
+}
+
+.special-total {
+    color: #000;
+    text-transform: uppercase;
+}
+
+table {
+    margin-left: -3%;
+}
+
+table th,
+tr,
+td {
+    text-align: center;
+    border-bottom: none;
+}
+
+.button {
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 0px;
+    padding-bottom: 15px;
+}
+
+.button .label {
+    font-family: 'Mont Light', sans-serif;
+    background-color: orangered;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+.contact-button {
+    font-family: 'Mont Medium', sans-serif;
+    border: 1px solid #f5f5f5;
+    border-radius: 25px;
+    background-color: #f5f5f5;
+    color: #808080;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    margin: 10px auto;
+}
+
+.contact-button:hover {
+    cursor: pointer;
+    background-color: #808080;
+    color: #fff;
+    transition: all 0.3s ease-in-out 0.1s;
+    -webkit-transition: all 0.3s ease-in-out 0.1s;
+}

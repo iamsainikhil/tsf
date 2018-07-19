@@ -1,0 +1,133 @@
+.leftRs {
+    position: absolute;
+    margin: 25px 50px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border: none;
+    background-color: transparent;
+    /* box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px; */
+}
+
+.rightRs {
+    position: absolute;
+    margin: 25px 50px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    /* box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px; */
+}
+
+.leftRs i,
+.rightRs i {
+    font-size: 48px;
+    color: #808080;
+}
+
+.leftRs i:hover,
+.rightRs i:hover {
+    cursor: pointer;
+    color: #000;
+    transition: all 0.5s linear 0.1s;
+    -webkit-transition: all 0.5s linear 0.1s;
+}
+
+
+/* testimonials */
+
+.testimonial {
+    margin: 0 auto;
+    text-align: center;
+    width: 600px;
+}
+
+.customer-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-color: #808080;
+    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+}
+
+.name {
+    font-family: 'Mont Medium', sans-serif;
+}
+
+.content {
+    margin: 0 auto;
+    position: relative;
+}
+
+.feedback {
+    font-family: 'Mont Regular', sans-serif;
+    letter-spacing: 1px;
+    border: 1px solid #f5f5f5;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.quote {
+    background-image: url('../../../../assets/icons/quote.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+}
+
+.top {
+    margin-top: -25px;
+    margin-left: -10px;
+}
+
+.bottom {
+    right: 0;
+    margin-top: -50px;
+    transform: rotate(180deg);
+}
+
+.testimonial-button {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.testimonial-button button {
+    font-family: 'Mont Medium', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 20px;
+    border: 1px solid #f5f5f5;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    color: #808080;
+}
+
+.testimonial-button button:hover {
+    cursor: pointer;
+    border-color: #808080;
+    background-color: #808080;
+    color: #f5f5f5;
+    transition: all 0.3s ease-in-out 0.1s;
+    -webkit-transition: all 0.3s ease-in-out 0.1s;
+}
+
+@media only screen and (max-width: 767px) {
+    .testimonial {
+        width: 80%;
+    }
+    .leftRs,
+    .rightRs {
+        margin: -100px auto auto auto;
+    }
+}

@@ -1,0 +1,58 @@
+<div class="order-wrapper">
+    <p class="title">Order Summary</p>
+    <div class="order-table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="items" *ngFor="let itemData of data; let i = index">
+                    <ng-container *ngIf="itemData | async as item">
+                        <!-- <td class="item-name-wrapper">
+                            <p><img [src]="item.imageUrl" alt="item.name"></p>
+                            <p class="item-name">{{item.name}}</p>
+                        </td> -->
+                        <td>{{item.name}}</td>
+                        <td>{{quantityData[i]}}</td>
+                        <td>{{itemsPriceData[i] | currency: selectedCurrency}}</td>
+                    </ng-container>
+                </tr>
+                <tr class="special">
+                    <td>Subtotal</td>
+                    <td>{{totalQuantity}}</td>
+                    <td>{{subTotalPrice | currency: selectedCurrency}}</td>
+                </tr>
+                <tr class="special">
+                    <td>Shipping</td>
+                    <td></td>
+                    <td>{{(shippingPrice | price: selectedCurrency) | currency: selectedCurrency}}</td>
+                </tr>
+                <tr class="special special-total">
+                    <td>Total</td>
+                    <td>{{totalQuantity}}</td>
+                    <td>{{totalPrice | currency: selectedCurrency}}</td>
+                </tr>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="button">
+            <span class="label label-rounded" *ngIf="totalQuantity < 5">
+                    <i class="fas fa-exclamation-triangle"></i>&nbsp;Minimum order quantity should be 5.
+                </span><br/>
+            <div *ngIf="totalQuantity === 25">
+                <span class="label label-rounded">
+                            <i class="fas fa-exclamation-triangle"></i>&nbsp;
+                            Reached maximum total order quantity.
+                    </span>
+                <button class="contact-button" routerLink="/contact">contact us for bulk orders</button>
+            </div>
+            <button class="checkout-button" [disabled]="totalQuantity < 5" *ngIf="totalQuantity !== 25">order</button>
+        </div>
+    </div>
+</div>

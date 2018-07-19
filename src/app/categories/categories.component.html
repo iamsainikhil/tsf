@@ -1,0 +1,14 @@
+<section class="filter" *ngIf="showFilter">
+    Filter&nbsp;By:&nbsp;
+    <div *ngFor="let item of filters; let i = index">
+        <span class="chip" [ngClass]="{'chip-selected' : item.click}" (click)="filterClick(item.name, i)">{{item.name}}</span>
+    </div>
+</section>
+
+<section>
+    <app-collection [collectionName]="'sweets'" [collectionData]="sweetsData" [showLoader]="sweetsLoader" *ngIf="showSweets"></app-collection>
+    <app-collection [collectionName]="'savories'" [collectionData]="savoriesData" [showLoader]="savoriesLoader" *ngIf="showSavories"></app-collection>
+    <app-collection [collectionName]="'pickles'" [collectionData]="picklesData" [showLoader]="picklesLoader" *ngIf="showPickles"></app-collection>
+    <app-collection [collectionName]="'powders'" [collectionData]="powdersData" [showLoader]="powdersLoader" *ngIf="showPowders"></app-collection>
+    <app-collection [collectionName]="'flavors'" [collectionData]="flavorsData" [showLoader]="flavorsLoader" *ngIf="showFlavors"></app-collection>
+</section>

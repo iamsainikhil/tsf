@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+    <h2 class="title">Login</h2>
+    <div class="buttons">
+        <div class="button" (click)="facebookLogin()">
+            <div class="button-content">
+                <p class="icon facebook"></p>
+                <p class="button-text fb-text">login with facebook</p>
+            </div>
+        </div>
+        <div class="button" (click)="googleLogin()">
+            <div class="button-content">
+                <p class="icon google"></p>
+                <p class="button-text g-text">login with google</p>
+            </div>
+        </div>
+        <p *ngIf="socialErrorMessage !== ''" class="social-error">{{socialErrorMessage}}</p>
+        <div class="divider text-center" data-content="OR"></div>
+    </div>
+    <div class="form-wrapper">
+        <app-email></app-email>
+    </div>
+    <p>
+        <span class="helper-text">Don't have an account?&nbsp;</span>
+        <span class="account-text" routerLink="/signup" *ngIf="!modal">Signup</span>
+        <span class="account-text" (click)="modalSignup()" *ngIf="modal">Signup</span>
+    </p>
+</div>

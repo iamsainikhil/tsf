@@ -1,0 +1,90 @@
+<div class="centered" *ngIf="showLoader">
+    <app-site-loader></app-site-loader>
+</div>
+<div class="category-container" *ngIf="!showLoader">
+    <div class="title">
+        <h2 class="title" *ngIf="collectionName !== 'popular'">{{collectionName}}</h2>
+        <h2 class="title" *ngIf="collectionName === 'popular'">{{collectionName}}&nbsp;Items</h2>
+    </div>
+    <div class="card-container">
+        <div *ngFor="let data of collectionData | async; let i = index">
+            <div class="card">
+                <div class="card-image">
+                    <a [routerLink]="['/', collectionName, data.id]" *ngIf="!category">
+                        <img [src]="data.data.imageUrl" class="img-responsive">
+                    </a>
+                    <!-- below for popular items component -->
+                    <a [routerLink]="['/', data.data.category, data.id]" *ngIf="category">
+                        <img [src]="data.data.imageUrl" class="img-responsive">
+                    </a>
+                    <!-- wishlist buttons -->
+                    <div class="wishlist-button tip" (click)="addWishlist(i)" *ngIf="!addedWishlistText && wishlistIndex === undefined">
+                        <span>Add to Wishlist</span>
+                        <i class="material-icons">turned_in_not</i>
+                    </div>
+                    <div class="wishlist-button tip" (click)="addWishlist(i)" *ngIf="wishlistIndex !== undefined && i !== wishlistIndex && !wishlistIndexAdded.includes(i)" title="Add to Wishlist">
+                        <span>Add to Wishlist</span>
+                        <i class="material-icons">turned_in_not</i>
+                    </div>
+                    <div class="wishlist-button tip" *ngIf="i !== wishlistIndex && wishlistIndexAdded.includes(i)" (click)="viewWishlist(i, data.data)" title="Add to Wishlist">
+                        <span>View Wishlist</span>
+                        <i class="material-icons">turned_in</i>
+                    </div>
+                    <div class="wishlist-button tip" *ngIf="addedWishlistText && i === wishlistIndex && wishlistIndexAdded.includes(i)" (click)="viewWishlist(i, data.data)" title="Add to Wishlist">
+                        <span>View Wishlist</span>
+                        <i class="material-icons">turned_in</i>
+                    </div>
+
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title" *ngIf="!category">
+                        <a [routerLink]="['/', collectionName, data.id]">{{data.data.name}}</a>
+                    </h5>
+                    <h5 class="card-title" *ngIf="category">
+                        <a [routerLink]="['/', data.data.category, data.id]">{{data.data.name}}</a>
+                    </h5>
+                    <p class="card-subtitle">{{(data.data.price | price: selectedCurrency) | currency: selectedCurrency}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <!-- cart buttons -->
+                        <button class="btn card-button" *ngIf="!showButtonLoader && !addedCartText && cartIndex === undefined" (click)="addCart(data.id, collectionName, i)">
+                            <!-- default button -->
+                            <div>
+                                <p><i class="material-icons">add_shopping_cart</i></p>  
+                                <p class="icon-text">Add to Cart</p>
+                            </div>
+                        </button>
+                        <button class="btn card-button" *ngIf="cartIndex !== undefined && i !== cartIndex && !cartIndexAdded.includes(i)" (click)="addCart(data.id, collectionName, i)">
+                            <!-- to not change the buttons for all the items -->
+                            <div>
+                                <p><i class="material-icons">add_shopping_cart</i></p>  
+                                <p class="icon-text">Add to Cart</p>
+                            </div>
+                        </button>
+                        <button class="btn card-button" *ngIf="i !== cartIndex && cartIndexAdded.includes(i)" (click)="viewCart(data.data.name)">
+                            <!-- to show view cart for already added items -->
+                            <div>
+                                    <p><i class="material-icons">shopping_cart</i></p>
+                                    <p class="icon-text">View Cart</p>
+                                </div>
+                            </button>
+                        <button class="btn card-button" *ngIf="showButtonLoader && i === cartIndex && cartIndexAdded.includes(i)">
+                            <!-- update the item button when clicked on add to cart -->
+                            <div><p class="loading"></p></div>
+                        </button>
+                        <button class="btn card-button" *ngIf="!showButtonLoader && addedCartText && i === cartIndex && cartIndexAdded.includes(i)" (click)="viewCart(data.data.name)">
+                            <div>
+                                <p><i class="material-icons">shopping_cart</i></p>
+                                <p class="icon-text">View Cart</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+<app-modal *ngIf="showModal"></app-modal>

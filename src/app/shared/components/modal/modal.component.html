@@ -1,0 +1,15 @@
+<div class="overlay">
+    <div class="popup animated zoomIn" appClickOutside (detectClick)="detectClick($event)">
+        <h2>LOGIN or SIGNUP</h2>
+        <hr>
+        <p *ngIf="content === null">to&nbsp;add&nbsp;an&nbsp;item&nbsp;to&nbsp;your&nbsp;wishlist!</p>
+        <p *ngIf="content !== null">{{content}}</p>
+        <a class="close" (click)="onClose()"></a>
+        <app-login [modal]="true" *ngIf="showLogin"></app-login>
+        <app-signup [modal]="true" *ngIf="showSignup"></app-signup>
+    </div>
+</div>
+
+<!-- 
+    [delayClickOutsideInit]="true" [clickOutsideEvents]="'click touchstart'"
+ -->

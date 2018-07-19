@@ -1,0 +1,18 @@
+<h2 class="title">Frequently&nbsp;Asked&nbsp;Questions</h2>
+
+<app-site-loader *ngIf="showLoader"></app-site-loader>
+
+<div class="wrapper" *ngIf="!showLoader">
+    <div class="content" *ngFor="let item of data | async; let i = index;">
+        <div class="content-card" (click)="questionClick(i)">
+            <div class="question-content">
+                <p class="question">{{item.data.question}}?</p>
+                <p class="icon arrow-down" *ngIf="!indexAdded.includes(i)"></p>
+                <p class="icon arrow-up" *ngIf="indexAdded.includes(i)"></p>
+            </div>
+            <div class="answer" *ngIf="indexAdded.includes(i)">
+                <p>{{item.data.answer}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.features {
+    color: #808080;
+    text-transform: capitalize;
+    font-family: 'Mont Light', sans-serif;
+    text-align: center;
+}
+
+.features p:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.help-text {
+    font-family: 'Mont Light', sans-serif;
+    color: #50596c;
+}
+
+.help-text:hover {
+    color: #000;
+    cursor: pointer;
+}

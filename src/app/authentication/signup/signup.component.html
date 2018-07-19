@@ -1,0 +1,56 @@
+<div class="signup-wrapper">
+    <div *ngIf="!verifyMessage">
+        <h2 class="title">Signup</h2>
+        <div class="form-wrapper">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+                <!-- name -->
+                <div class="form-group">
+                    <input class="form-input" type="text" id="name" placeholder="Name" autocomplete="name" ngModel required name="name" #name="ngModel">
+                </div>
+                <div *ngIf="name.invalid && name.touched">
+                    <span class="error" *ngIf="name.hasError('required')">Name is required!</span>
+                </div>
+
+                <!-- email -->
+                <div class="form-group">
+                    <input class="form-input" type="email" id="email" placeholder="Email" autocomplete='email' ngModel required name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                </div>
+                <div [hidden]="email.valid || !email.touched">
+                    <span class="error" *ngIf="email.hasError('pattern') || email.dirty">Please, enter a valid email address!</span>
+                    <span class="error" [hidden]="!email.hasError('required')">Email is required!</span>
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <input class="form-input" type="password" id="password" placeholder="Password" autocomplete="new-password" ngModel minlength="6" required name="password" #password="ngModel">
+                </div>
+                <div [hidden]="password.valid || !password.touched">
+                    <span class="error" [hidden]="!password.hasError('minlength')">Password should be atleast 6 characters!</span>
+                    <span class="error" [hidden]="!password.hasError('required')">Password is required!</span>
+                </div>
+
+                <span class="error">{{errorMessage}}</span>
+
+                <!-- button -->
+                <div class="form-button-group">
+                    <button type="submit" class="submit-button" [disabled]="!f.valid">Signup</button>
+                </div>
+            </form>
+        </div>
+        <p>
+            <span class="helper-text">Already have an account?&nbsp;</span>
+            <span class="account-text" routerLink="/login" *ngIf="!modal">Login</span>
+            <!-- below span is shown only on modal -->
+            <span class="account-text" (click)="modalLogin()" *ngIf="modal">Login</span>
+        </p>
+    </div>
+    <div *ngIf="verifyMessage">
+        <h4 class="title">A verification link has been sent to your email!</h4>
+        <hr>
+        <p>Please, click on the link in the verification email and finish the registration process.</p>
+        <p>You won't be able to login to your account until you verify your email!</p>
+        <span class="account-text" routerLink="/login" *ngIf="!modal">Login</span>
+        <!-- below span is shown only on modal -->
+        <span class="account-text" (click)="modalLogin()" *ngIf="modal">Login</span>
+    </div>
+</div>

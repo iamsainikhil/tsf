@@ -1,0 +1,88 @@
+<div appScrollable (scrollDirection)="getPosition($event)" [ngClass]="{'sticky': !showHeader}">
+    <div class="mobile">
+        <div class="logo" routerLink="/" (click)="mobileLogoClick()">
+            Telangana Swagruha Foods
+        </div>
+        <div class="nav-icon">
+            <div class="menu-icon menu-icon-cross" [ngClass]="{'isOpen' : iconClick}" (click)="menuIconClick()">
+                <span></span>
+                <svg x="0" y="0" width="54px" height="54px" viewbox="0 0 54 54">
+                    <circle cx="27" cy="27" r="26"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="nav-items-wrapper" *ngIf="iconClick">
+            <div class="nav-links">
+                <a routerLink="/wishlist" (click)="mobileLinksClick('wishlist')" *ngIf="loggedIn">
+                    <span><i class="material-icons">turned_in</i></span>
+                    <span class="icon-text">Wishlist</span>
+                </a>
+                <a routerLink="/cart" (click)="mobileLinksClick('cart')">
+                    <span><i class="material-icons">shopping_cart</i></span>
+                    <span class="icon-text">Cart&nbsp;
+                        <span *ngIf="cartNumber > 0">[ {{cartNumber}} ]</span>
+                    </span>
+                </a>
+                <a routerLink="/login" (click)="mobileLinksClick('login')" *ngIf="!loggedIn">
+                    <span><i class="material-icons">person</i></span>
+                </a>
+                <a routerLink="/user" (click)="mobileLinksClick('user')" *ngIf="loggedIn">
+                    <span><i class="material-icons" *ngIf="userAvatar === ''">person</i></span>
+                    <span><img [src]="userAvatar" alt="userAvatar" *ngIf="userAvatar !== ''"></span>
+                    <span class="icon-text" *ngIf="userName !== ''">{{userName | wordExtract}}</span>
+                </a>
+                <a (click)="logout()" *ngIf="loggedIn">
+                    <span><i class="material-icons">exit_to_app</i></span>
+                    <span class="icon-text">logout</span>
+                </a>
+                <a>
+                    <label for="country"><i class="material-icons">public</i></label>
+                    <select name="country" id="country" [(ngModel)]="selectedCurrency" (change)="setCurrency()">
+                        <option value="INR">India</option>
+                        <option value="USD">United States</option>
+                        <option value="AUD">Australia</option>
+                        <option value="GBP">United Kingdom</option>
+                    </select>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="desktop">
+        <div class="logo" routerLink="/">
+            Telangana Swagruha Foods
+        </div>
+        <div class="nav-items-container">
+            <a routerLink="/wishlist" (click)="desktopLinksClick('wishlist')" *ngIf="loggedIn">
+                <span><i class="material-icons">turned_in</i></span>
+                <!-- <span class="icon-text">Wishlist</span> -->
+            </a>
+            <a routerLink="/cart" (click)="desktopLinksClick('cart')">
+                <span><i class="material-icons">shopping_cart</i></span>
+                <span class="number-badge" *ngIf="cartNumber > 0">{{cartNumber}}</span>
+                <!-- <span class="icon-text">Cart</span> -->
+            </a>
+            <a routerLink="/login" (click)="desktopLinksClick('login')" *ngIf="!loggedIn">
+                <span><i class="material-icons">person</i></span>
+                <!-- <span class="icon-text">Login</span> -->
+            </a>
+            <a routerLink="/user" (click)="desktopLinksClick('user')" *ngIf="loggedIn">
+                <span><i class="material-icons" *ngIf="userAvatar === ''">person</i></span>
+                <span class="user-avatar" [ngStyle]="{'background-image': 'url(' + userAvatar +')'}" *ngIf="userAvatar !== ''"></span>
+                <!-- <span class="icon-text" *ngIf="userName !== ''">{{userName | wordExtract}}</span> -->
+            </a>
+            <a (click)="logout()" *ngIf="loggedIn">
+                <span><i class="material-icons">exit_to_app</i></span>
+                <!-- <span class="icon-text">logout</span> -->
+            </a>
+            <a class="select-item">
+                <label for="country"><i class="material-icons">public</i></label>
+                <select name="country" id="country" [(ngModel)]="selectedCurrency" (change)="setCurrency()">
+                            <option value="INR">India</option>
+                            <option value="USD">United States</option>
+                            <option value="AUD">Australia</option>
+                            <option value="GBP">United Kingdom</option>
+                        </select>
+            </a>
+        </div>
+    </div>
+</div>

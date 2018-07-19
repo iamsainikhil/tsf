@@ -1,0 +1,27 @@
+<div *ngFor="let data of cartData; let i = index">
+    <div *ngIf="data | async as item">
+        <div class="item">
+            <div class="item-image">
+                <img [src]="item.imageUrl" alt="" class="item-image img-responsive">
+            </div>
+            <div class="item-content-wrapper">
+                <p class="item-title">{{item.name}}</p>
+                <div class="quantity-wrapper">
+                    <p>Quantity&nbsp;(kg)</p>
+                    <p (click)="updateQuantity(i, item, 'decrement')"><i class="material-icons">remove</i></p>
+                    <p class="number">{{quantityData[i]}}</p>
+                    <p (click)="updateQuantity(i, item, 'increment')"><i class="material-icons">add</i></p>
+                </div>
+                <p class="item-price">{{itemsPriceData[i] | currency: selectedCurrency}}</p>
+                <div class="item-buttons">
+                    <p class="remove-cart" (click)="removeItem(i, item)" title="Remove item from cart"><i class="material-icons">clear</i></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="shopping">
+    <button class="checkout-button" (click)="continueShopping()">Continue Shopping?</button>
+</div>

@@ -1,0 +1,28 @@
+<app-site-loader *ngIf="showLoader"></app-site-loader>
+
+<div>
+    <h2 class="title" *ngIf="!showLoader">customer testimonials</h2>
+    <ngu-carousel class="testimonials" [inputs]="testimonials">
+        <ngu-item NguCarouselItem *ngFor="let item of testimonialsData | async">
+            <div class="testimonial">
+                <div class="customer-image" [ngStyle]="{'background-image': 'url(' + item.data.avatarUrl + ')'}"></div>
+                <p class="name">{{item.data.name}}</p>
+                <div class="content">
+                    <p class="quote top"></p>
+                    <p class="feedback">
+                        {{item.data.feedback}}
+                    </p>
+                    <p class="quote bottom"></p>
+                </div>
+            </div>
+        </ngu-item>
+        <button NguCarouselPrev class='leftRs'><i class="material-icons">keyboard_arrow_left</i></button>
+        <button NguCarouselNext class='rightRs'><i class="material-icons">keyboard_arrow_right</i></button>
+    </ngu-carousel>
+    <p class="testimonial-button" *ngIf="!showLoader">
+        <button (click)="giveFeedback()">Want to Give a Feedback</button>
+    </p>
+
+    <!-- modal -->
+    <app-modal *ngIf="showModal" [content]="modalContent"></app-modal>
+</div>

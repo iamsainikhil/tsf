@@ -1,0 +1,141 @@
+.sub-title,
+.wrapper {
+    text-align: center;
+}
+
+.sub-title {
+    font-family: 'Mont Medium', sans-serif;
+}
+
+.wrapper-title {
+    font-family: 'Mont Regular', sans-serif;
+}
+
+
+/* contact information */
+
+.information {
+    font-family: 'Mont Regular', sans-serif;
+    letter-spacing: 1px;
+    border: 1px solid #f5f5f5;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.information i {
+    margin-top: 2px;
+}
+
+.address-wrapper,
+.phone-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px;
+}
+
+.address-wrapper p,
+.phone-wrapper p {
+    padding-right: 10px;
+}
+
+.phone-wrapper .button {
+    margin-top: -5px;
+}
+
+
+/* contact form */
+
+.form {
+    padding: 20px;
+}
+
+.form-wrapper .error {
+    justify-content: left;
+    padding-left: 20px;
+}
+
+
+/* success message */
+
+.button {
+    border: 1px solid #808080;
+    background-color: #f5f5f5;
+    color: #808080;
+    font-family: 'Mont Medium', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 300px;
+    padding: 10px 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #808080;
+    color: #fff;
+}
+
+.empty-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.empty {
+    color: #343434;
+    background: #f5f5f5;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    font-family: 'Mont Regular', sans-serif;
+    letter-spacing: 1px;
+}
+
+.email-success {
+    background-image: url('../../../assets/icons/email-success.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 75px;
+}
+
+@media only screen and (max-width: 767px) {
+    .sub-title {
+        font-size: 18px;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 10px;
+    }
+    .button {
+        font-size: 14px;
+        width: 240px;
+    }
+    .success-message .button {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+        padding: 40px;
+    }
+    .information {
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .form-wrapper {
+        width: 500px;
+    }
+    .form-wrapper input,
+    .form-wrapper textarea,
+    .form-wrapper button {
+        width: 500px;
+    }
+}

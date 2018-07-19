@@ -1,0 +1,85 @@
+<section class="footer">
+    <div class="wrapper">
+        <div class="first-column">
+            <ul>
+                <li class="column-title">Categories</li>
+                <li *ngFor="let item of categories; let i = index">
+                    <a [routerLink]="['/', item]" (click)="categoryItemClick(i)">{{item}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="second-column">
+            <ul>
+                <li class="column-title">Store</li>
+                <li class="select">
+                    <label for="country"><i class="material-icons">public</i></label>
+                    <select name="country" id="country" [(ngModel)]="selectedCurrency" (change)="setCurrency()">
+                            <option value="INR">India</option>
+                            <option value="USD">United States</option>
+                            <option value="AUD">Australia</option>
+                            <option value="GBP">United Kingdom</option>
+                        </select>
+                </li>
+                <li *ngIf="loggedIn">
+                    <div class="icon-list">
+                        <a routerLink="/wishlist" (click)="featuresItemClick('wishlist')">
+                            <span><i class="material-icons">turned_in</i></span>
+                            <span>Wishlist</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-list">
+                        <a routerLink="/cart" (click)="featuresItemClick('cart')">
+                            <span><i class="material-icons">shopping_cart</i></span>
+                            <span class="number-badge" *ngIf="cartNumber > 0">{{cartNumber}}</span>
+                            <span>Cart</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-list" *ngIf="!loggedIn">
+                        <a routerLink="/login">
+                            <span><i class="material-icons">person</i></span>
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-list" *ngIf="loggedIn">
+                        <a routerLink="/user">
+                            <span><i class="material-icons" *ngIf="userAvatar === ''">person</i></span>
+                            <span class="user-avatar" [ngStyle]="{'background-image': 'url(' + userAvatar +')'}" *ngIf="userAvatar !== ''"></span>
+                            <span *ngIf="userName !== ''">{{userName | wordExtract}}</span>
+                        </a>
+                    </div>
+                </li>
+                <li *ngIf="loggedIn">
+                    <div class="icon-list">
+                        <a (click)="logout()">
+                            <span><i class="material-icons">exit_to_app</i></span>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="third-column">
+            <ul>
+                <li class="column-title">Other</li>
+                <li *ngFor="let item of contact; let i = index">
+                    <a [routerLink]="['/', item]" (click)="contactItemClick(i)">{{item}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fourth-column">
+            <ul>
+                <li class="column-title">Information</li>
+                <li *ngFor="let item of information; let i = index">
+                    <a [routerLink]="['/', item.url]" (click)="contactItemClick(i)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyrights">&copy;&nbsp;2018&nbsp;Telangana&nbsp;Swagruha&nbsp;Foods&nbsp;|&nbsp;All&nbsp;Rights&nbsp;Reserved.</p>
+</section>

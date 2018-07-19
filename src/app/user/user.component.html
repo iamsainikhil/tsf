@@ -1,0 +1,8 @@
+<app-site-loader *ngIf="showLoader"></app-site-loader>
+<div class="user-wrapper" *ngIf="!showLoader">
+    <div *ngIf="userData | async as user">
+        <h2 class="title">
+            Welcome, {{user.data.name | wordExtract}}!
+        </h2>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="card" *ngIf="itemData | async as item">
+    <div class="card-image">
+        <img [src]="item.imageUrl" class="img-responsive">
+        <!-- wishlist buttons -->
+        <div class="wishlist-button tip" *ngIf="!addedWishlistText" (click)="addWishlist()">
+            <span>Add to Wishlist</span>
+            <i class="material-icons">turned_in_not</i>
+        </div>
+        <div class="wishlist-button tip" *ngIf="addedWishlistText" (click)="viewWishlist(item)">
+            <span>View Wishlist</span>
+            <i class="material-icons">turned_in</i>
+        </div>
+    </div>
+    <div class="card-header">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-subtitle" *ngIf="selectedCurrency === 'INR'">{{item.price.india | currency: selectedCurrency}}</p>
+        <p class="card-subtitle" *ngIf="selectedCurrency === 'USD'">{{item.price.us | currency: selectedCurrency}}</p>
+        <p class="card-subtitle" *ngIf="selectedCurrency === 'AUD'">{{item.price.aus | currency: selectedCurrency: 'code'}}</p>
+        <p class="card-subtitle" *ngIf="selectedCurrency === 'GBP'">{{item.price.uk | currency: selectedCurrency}}</p>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-block">
+            <!-- cart buttons -->
+            <button class="btn card-button" *ngIf="!showButtonLoader && !addedCartText" (click)="addCart(item)">
+                <!-- default button -->
+                <div>
+                    <p><i class="material-icons">add_shopping_cart</i></p>  
+                    <p class="icon-text">Add to Cart</p>
+                </div>
+            </button>
+            <button class="btn card-button" *ngIf="showButtonLoader">
+                <!-- update the item button when clicked on add to cart -->
+                <p class="loading"></p>
+            </button>
+            <button class="btn card-button" *ngIf="!showButtonLoader && addedCartText" (click)="viewCart(item.name)">
+                <div>
+                    <p><i class="material-icons">shopping_cart</i></p>
+                    <p class="icon-text">View Cart</p>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<app-modal *ngIf="showModal"></app-modal>
+
+<!-- 
+     <button class="btn card-button" *ngIf="!addedWishlistText" (click)="addWishlist()">
+                <div>
+                    <p><i class="material-icons">turned_in_not</i></p>
+                    <p class="icon-text">Add to Wishlist</p>
+                </div>
+            </button>
+            <button class="btn card-button" *ngIf="addedWishlistText" (click)="viewWishlist(item)">
+                <div>
+                    <p><i class="material-icons">turned_in</i></p>
+                    <p class="icon-text">View Wishlist</p>
+                </div>
+            </button>
+ -->

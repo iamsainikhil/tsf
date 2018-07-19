@@ -1,0 +1,61 @@
+<h2 class="title">Contact</h2>
+<h3 class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, animi!</h3>
+<div class="wrapper">
+    <div class="information">
+        <h4 class="wrapper-title">Information</h4>
+        <div class="address-wrapper">
+            <p><i class="material-icons">room</i></p>
+            <p>Near Meher Baba Temple, Meher Nagar, Road No 5, Bank Colony, Karimnagar, Telanagana-505001, India</p>
+        </div>
+        <div class="phone-wrapper">
+            <p><i class="material-icons">call</i></p>
+            <p *ngIf="!revealNumber"><button class="button" (click)="onReveal()">Reveal&nbsp;Phone&nbsp;Number</button></p>
+            <p *ngIf="revealNumber">+91&nbsp;8008804336, +91&nbsp;8186096664</p>
+        </div>
+    </div>
+    <div class="form">
+        <div *ngIf="!successMessage">
+            <h4 class="wrapper-title">Contact Form</h4>
+            <div class="form-wrapper">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+
+                    <!-- email -->
+                    <div class="form-group">
+                        <input class="form-input" type="email" id="email" placeholder="Email" autocomplete='email' ngModel required name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    </div>
+                    <div [hidden]="email.valid || !email.touched">
+                        <span class="error" *ngIf="email.hasError('pattern') || email.dirty">Please, enter a valid email address!</span>
+                        <span class="error" [hidden]="!email.hasError('required')">Email is required!</span>
+                    </div>
+
+                    <!-- message -->
+                    <div class="form-group">
+                        <textarea class="form-input" type="text" id="message" placeholder="Message" ngModel required name="message" #message="ngModel">
+                        </textarea>
+                    </div>
+                    <div [hidden]="message.valid || !message.touched">
+                        <span class="error" [hidden]="!message.hasError('required')">Message is required!</span>
+                    </div>
+
+                    <!-- button -->
+                    <div class="form-button-group">
+                        <button type="submit" class="submit-button" [disabled]="!f.valid">send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- success message -->
+        <div class="success-message" *ngIf="successMessage">
+            <div class="empty">
+                <div class="empty-icon">
+                    <p class="email-success"></p>
+                </div>
+                <p class="empty-title h5">Message has been sent successfully!</p>
+                <div class="empty-action centered">
+                    <button class="button" (click)="showForm()">Send&nbsp;another&nbsp;message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

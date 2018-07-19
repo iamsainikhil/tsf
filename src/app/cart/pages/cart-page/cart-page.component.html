@@ -1,0 +1,19 @@
+<div class="page-content" [ngClass]="{'pc-empty': cartEmpty}">
+    <div class="cart-empty" *ngIf="cartEmpty">
+        <h2 class="title">Cart Empty</h2>
+        <button class="checkout-button" (click)="continueShopping()">Shop</button>
+    </div>
+    <div *ngIf="!cartEmpty">
+        <app-site-loader *ngIf="showLoader"></app-site-loader>
+        <div class="wrapper" *ngIf="!showLoader">
+            <div class="main-content">
+                <app-cart [cartData]="itemsDataObservable" [quantityData]="quantity" [itemsPriceData]="itemPrice" [selectedCurrency]="selectedCurrency" [totalQuantity]="totalQuantity" (quantityIndex)="getIndex($event)"></app-cart>
+            </div>
+            <div class="side-content">
+                <div>
+                    <app-cart-checkout [data]="itemsDataObservable" [quantityData]="quantity" [itemsPriceData]="itemPrice" [selectedCurrency]="selectedCurrency" [totalQuantity]="totalQuantity" [subTotalPrice]="subTotalPrice" [shippingPrice]="shippingPrice" [totalPrice]="totalPrice"></app-cart-checkout>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

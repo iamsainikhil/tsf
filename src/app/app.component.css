@@ -1,0 +1,142 @@
+/* offline message */
+
+.no-connection-content {
+    margin: 10% auto;
+}
+
+.text {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.loader {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin: 30% 20%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.loader svg {
+    width: 60%;
+    height: auto;
+}
+
+.loader:before {
+    display: none;
+}
+
+.drawit {
+    fill: transparent;
+    stroke: #000;
+    stroke-width: 2px;
+    stroke-dasharray: 300;
+    stroke-dashoffset: -300;
+    animation: dash 5s linear .5s infinite alternate;
+}
+
+.letters {
+    stroke: #343434;
+    fill: #f5f7f7;
+}
+
+
+/* Keyframes */
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: -300;
+    }
+    30% {
+        stroke-dashoffset: 0;
+    }
+    60% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -300;
+    }
+}
+
+.floating-cart {
+    bottom: 20px;
+    right: 10px;
+    position: fixed;
+    z-index: 1;
+    color: #000;
+    display: flex;
+    flex-flow: row nowrap;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -o-animation-delay: 0.5s;
+}
+
+.floating-cart .material-icons {
+    font-size: 32px;
+}
+
+.floating-cart .number {
+    font-family: 'Mont Regular', sans-serif;
+    background-color: #f5f5f5;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -10px;
+    padding: 2px 4px;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/* wrapper */
+
+@supports (display: grid) {
+    .wrapper {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%;
+    }
+}
+
+
+/* for IE 10, 11 or later versions */
+
+@supports not (display: grid) {
+    .wrapper {
+        display: -ms-grid;
+        overflow-x: hidden;
+        min-height: 100vh;
+        -ms-grid-rows: 1fr 2fr 1fr;
+        -ms-grid-columns: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    main {
+        padding-top: 60px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .floating-cart {
+        display: none;
+    }
+    main {
+        padding-top: 90px;
+    }
+}

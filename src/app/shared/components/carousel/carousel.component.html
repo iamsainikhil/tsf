@@ -1,0 +1,15 @@
+<div *ngIf="showLoader">
+    <app-site-loader></app-site-loader>
+</div>
+
+<div class="carousel-wrapper">
+    <div *ngFor="let data of bannersData | async">
+        <ngu-carousel [inputs]="carouselOne" (initData)="initDataFn($event)">
+            <ngu-item NguCarouselItem *ngFor="let image of data.images" class="carousel-image">
+                <img [src]="image" alt="beach" class="img-responsive">
+            </ngu-item>
+            <button NguCarouselPrev class='leftRs'></button>
+            <button NguCarouselNext class='rightRs'></button>
+        </ngu-carousel>
+    </div>
+</div>

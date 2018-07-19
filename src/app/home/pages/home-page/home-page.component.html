@@ -1,0 +1,22 @@
+<div class="home-content">
+    <section>
+        <div class="carousel-wrapper">
+            <app-carousel (showFilter)="filterCondition($event)"></app-carousel>
+        </div>
+    </section>
+
+    <section class="categories" *ngIf="showFilter">
+        <h2 class="title">Shop by Categories</h2>
+        <div class="cards">
+            <p class="card-item" *ngFor="let item of filters; let i = index" (click)="filterClick(item.name, i)">{{item.name}}</p>
+        </div>
+    </section>
+
+    <section>
+        <app-popular></app-popular>
+    </section>
+
+    <section class="testimonials">
+        <app-testimonials></app-testimonials>
+    </section>
+</div>
