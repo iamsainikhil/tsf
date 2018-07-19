@@ -23,6 +23,7 @@ export class SiteHeaderComponent implements OnInit {
   cartNumber: number;
 
   showHeader = true; // to hide/show header while user scrolls
+  animateHeader = false;
 
   constructor(
     private currencyService: CurrencyService,
@@ -133,12 +134,17 @@ export class SiteHeaderComponent implements OnInit {
     );
   }
 
-  // show header when user scrolls up
-  getPosition(e) {
+   // show header when user scrolls up
+   getPosition(e) {
     if (e === 'up') {
       this.showHeader = true;
+      this.animateHeader = true;
+    } else if (e === 'zero') {
+      this.showHeader = true;
+      this.animateHeader = false;
     } else {
       this.showHeader = false;
+      this.animateHeader = false;
     }
   }
 

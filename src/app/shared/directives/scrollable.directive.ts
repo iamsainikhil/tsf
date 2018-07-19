@@ -24,10 +24,12 @@ export class ScrollableDirective {
       // to show/hide header
 
       setTimeout(() => {
-        if (currentScroll > this.lastScrollTop && currentScroll  > 50) {
+        if (currentScroll > this.lastScrollTop && currentScroll  > 25) {
           this.scrollDirection.emit('down');
         } else if (currentScroll === this.lastScrollTop) {
           // do nothing
+        } else if (currentScroll <= 25) {
+          this.scrollDirection.emit('zero');
         } else {
           this.scrollDirection.emit('up');
         }

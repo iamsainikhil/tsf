@@ -8,7 +8,7 @@
     </div>
     <div class="card-container">
         <div *ngFor="let data of collectionData | async; let i = index">
-            <div class="card">
+            <div class="card wow fade-in-bottom">
                 <div class="card-image">
                     <a [routerLink]="['/', collectionName, data.id]" *ngIf="!category">
                         <img [src]="data.data.imageUrl" class="img-responsive">

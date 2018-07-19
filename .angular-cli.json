@@ -20,10 +20,11 @@
         "styles": [
             "styles.css",
             "spectre.min.css",
-            "spectre-exp.min.css",
-            "../node_modules/animate.css/animate.min.css"
+            "spectre-exp.min.css"
         ],
-        "scripts": [],
+        "scripts": [
+            "../node_modules/wowjs/dist/wow.min.js"
+        ],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",

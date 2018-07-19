@@ -2,7 +2,7 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
 
         <!-- email -->
-        <div class="form-group">
+        <div class="form-group scale-in-center">
             <input class="form-input" type="email" id="email" placeholder="Email" autocomplete='email' ngModel required name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
         </div>
         <div [hidden]="email.valid || !email.touched">
@@ -11,7 +11,7 @@
         </div>
 
         <!-- password -->
-        <div class="form-group">
+        <div class="form-group scale-in-center">
             <input class="form-input" type="password" id="password" placeholder="Password" autocomplete="current-password" ngModel minlength="6" required name="password" #password="ngModel">
         </div>
         <div [hidden]="password.valid || !password.touched">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- forget password & stay logged in-->
-        <div class="features">
+        <div class="features scale-in-center">
             <p (click)="showFP()">Forgot password?</p>
         </div>
 
@@ -33,7 +33,7 @@
         <span class="error" *ngIf="resendLinkMessage !== ''">{{resendLinkMessage}}</span>
 
         <!-- button -->
-        <div class="form-button-group">
+        <div class="form-button-group scale-in-center">
             <button type="submit" class="submit-button" [disabled]="!f.valid">Login</button>
         </div>
     </form>
@@ -41,5 +41,5 @@
 
 <div *ngIf="showForgotPasswordForm">
     <app-forgot-password></app-forgot-password>
-    <p class="help-text" (click)="showFP()">Just kidding. I know my password.</p>
+    <p class="help-text fade-in-bottom" (click)="showFP()">Just kidding. I know my password.</p>
 </div>

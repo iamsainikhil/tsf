@@ -1,11 +1,12 @@
 import { CartService } from './shared/services/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { PageScrollConfig } from 'ngx-page-scroll';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { environment } from './../environments/environment';
 import { GoogleAnalyticsEventsService } from './shared/services/google-analytics-events-service';
+import { NgwWowService } from 'ngx-wow';
 
 declare let gtag: any;
 
@@ -14,7 +15,7 @@ declare let gtag: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   analyticsId = environment.analyticsId;
   /**
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
     private afs: AngularFirestore,
     private router: Router,
     private googleAnalyticsEventsService: GoogleAnalyticsEventsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private wowService: NgwWowService
   ) {
 
     this.afs.firestore.settings({ timestampsInSnapshots: true });
@@ -90,6 +92,10 @@ export class AppComponent implements OnInit {
         });
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.wowService.init();
   }
 
   onDeactivate() {
