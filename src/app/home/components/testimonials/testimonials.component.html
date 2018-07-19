@@ -2,7 +2,7 @@
 
 <div>
     <h2 class="title" *ngIf="!showLoader">customer testimonials</h2>
-    <ngu-carousel class="testimonials" [inputs]="testimonials">
+    <ngu-carousel class="testimonials wow fade-in-bottom" [inputs]="testimonials">
         <ngu-item NguCarouselItem *ngFor="let item of testimonialsData | async">
             <div class="testimonial">
                 <div class="customer-image" [ngStyle]="{'background-image': 'url(' + item.data.avatarUrl + ')'}"></div>
@@ -19,7 +19,7 @@
         <button NguCarouselPrev class='leftRs'><i class="material-icons">keyboard_arrow_left</i></button>
         <button NguCarouselNext class='rightRs'><i class="material-icons">keyboard_arrow_right</i></button>
     </ngu-carousel>
-    <p class="testimonial-button" *ngIf="!showLoader">
+    <p class="testimonial-button wow scale-in-center" *ngIf="!showLoader">
         <button (click)="giveFeedback()">Want to Give a Feedback</button>
     </p>
 

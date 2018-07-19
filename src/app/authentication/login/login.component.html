@@ -1,6 +1,6 @@
-<div class="login-wrapper">
+<div class="login-wrapper flip-scale-right">
     <h2 class="title">Login</h2>
-    <div class="buttons">
+    <div class="buttons scale-in-center">
         <div class="button" (click)="facebookLogin()">
             <div class="button-content">
                 <p class="icon facebook"></p>
@@ -19,7 +19,7 @@
     <div class="form-wrapper">
         <app-email></app-email>
     </div>
-    <p>
+    <p class="scale-in-center">
         <span class="helper-text">Don't have an account?&nbsp;</span>
         <span class="account-text" routerLink="/signup" *ngIf="!modal">Signup</span>
         <span class="account-text" (click)="modalSignup()" *ngIf="modal">Signup</span>

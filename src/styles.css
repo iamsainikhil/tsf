@@ -607,6 +607,64 @@ select:focus {
 
 /* animations */
 
+.slide-bottom {
+    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+.scale-in-center {
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .fade-in-bottom {
     -webkit-animation: fade-in-bottom 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-bottom 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -638,33 +696,77 @@ select:focus {
     }
 }
 
-.fade-in-bck {
-    -webkit-animation: fade-in-bck 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: fade-in-bck 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+/* authentication animations */
+
+.flip-scale-right {
+    -webkit-animation: flip-scale-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: flip-scale-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    backface-visibility: hidden;
 }
 
-@-webkit-keyframes fade-in-bck {
+@-webkit-keyframes flip-scale-right {
     0% {
-        -webkit-transform: translateZ(80px);
-        transform: translateZ(80px);
-        opacity: 0;
+        -webkit-transform: translateX(-100px) scale(1);
+        transform: translateX(-100px) scale(1);
+    }
+    50% {
+        -webkit-transform: translateX(-50px) scale(1.2);
+        transform: translateX(-50px) scale(1.2);
     }
     100% {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        opacity: 1;
+        -webkit-transform: translateX(0px) scale(1);
+        transform: translateX(0px) scale(1);
     }
 }
 
-@keyframes fade-in-bck {
+@keyframes flip-scale-right {
     0% {
-        -webkit-transform: translateZ(80px);
-        transform: translateZ(80px);
-        opacity: 0;
+        -webkit-transform: translateX(-100px) scale(1);
+        transform: translateX(-100px) scale(1);
+    }
+    50% {
+        -webkit-transform: translateX(-50px) scale(1.2);
+        transform: translateX(-50px) scale(1.2);
     }
     100% {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        opacity: 1;
+        -webkit-transform: translateX(0px) scale(1);
+        transform: translateX(0px) scale(1);
+    }
+}
+
+.flip-scale-left {
+    -webkit-animation: flip-scale-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: flip-scale-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    backface-visibility: hidden;
+}
+
+@-webkit-keyframes flip-scale-left {
+    0% {
+        -webkit-transform: translateX(100px) scale(1);
+        transform: translateX(100px) scale(1);
+    }
+    50% {
+        -webkit-transform: translateX(50px) scale(1.2);
+        transform: translateX(50px) scale(1.1);
+    }
+    100% {
+        -webkit-transform: translateX(0px) scale(1);
+        transform: translateX(0px) scale(1);
+    }
+}
+
+@keyframes flip-scale-left {
+    0% {
+        -webkit-transform: translateX(100px) scale(1);
+        transform: translateX(100px) scale(1);
+    }
+    50% {
+        -webkit-transform: translateX(50px) scale(1.2);
+        transform: translateX(50px) scale(1.1);
+    }
+    100% {
+        -webkit-transform: translateX(0px) scale(1);
+        transform: translateX(0px) scale(1);
     }
 }

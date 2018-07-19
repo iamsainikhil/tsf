@@ -8,6 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { NgwWowModule } from 'ngx-wow';
 import { AgmCoreModule } from '@agm/core';
 import { AboutComponent } from './about/about/about.component';
 import { ContactComponent } from './about/contact/contact.component';
@@ -112,7 +113,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     NgxPageScrollModule,
     AgmCoreModule.forRoot({
       apiKey: environment.mapsKey
-    })
+    }),
+    NgwWowModule.forRoot()
   ],
   providers: [
     GoogleAnalyticsEventsService,

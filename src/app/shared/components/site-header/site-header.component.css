@@ -5,6 +5,29 @@
     top: -100%;
 }
 
+
+/* header styles when user scrolls */
+
+.mobile.non-sticky,
+.desktop.non-sticky {
+    height: 50px !important;
+    padding: 10px;
+}
+
+.non-sticky .logo {
+    height: 30px;
+}
+
+.non-sticky .text-m,
+.non-sticky .text-nu {
+    font-size: 18px;
+}
+
+.desktop.non-sticky .nav-items-container {
+    padding: 5px;
+    margin-top: -5px;
+}
+
 .user-avatar {
     background-repeat: no-repeat;
     background-size: contain;
@@ -102,7 +125,8 @@ select {
     color: #fff;
     border: 1px solid transparent;
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px;
+    height: 40px;
+    padding: 5px 15px;
 }
 
 
@@ -118,6 +142,7 @@ select {
 
 .mobile .logo {
     position: relative;
+    font-size: 14px;
 }
 
 .nav-icon {
@@ -135,7 +160,7 @@ select {
 .text-m,
 .text-nu {
     color: #000;
-    font-size: 22px;
+    font-size: 20px;
     margin-top: 19px;
 }
 
@@ -327,11 +352,11 @@ select {
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 20px;
-    height: 90px;
+    height: 80px;
 }
 
 .nav-items-container {
-    padding-top: 10px;
+    padding-top: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
