@@ -87,9 +87,9 @@ export class TestimonialsComponent implements OnInit {
   }
 
   giveFeedback() {
-    this.authService.redirectUrl = '/feedback';
     this.authService.logged.subscribe((logged) => {
       if (!logged) {
+          this.authService.redirectUrl = '/feedback';
           this.bannerService.showModal.subscribe((condition) => {
           this.showModal = condition;
         });
