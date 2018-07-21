@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { AuthService } from './../../services/auth.service';
-import { CurrencyService } from './../../services/currency.service';
-import { GoogleAnalyticsEventsService } from './../../services/google-analytics-events-service';
+import { AuthService } from '../../services/auth.service';
+import { CurrencyService } from '../../services/currency.service';
+import { GoogleAnalyticsEventsService } from '../../services/google-analytics-events-service';
 
 
 @Component({

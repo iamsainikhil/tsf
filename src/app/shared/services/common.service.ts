@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Item } from './../models/item';
+import { Item } from '../models/item';
 
 @Injectable()
 export class CommonService {

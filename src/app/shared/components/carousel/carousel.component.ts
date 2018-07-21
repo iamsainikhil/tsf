@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NguCarousel } from '@ngu/carousel';
 import { BannerService } from '../../services/banner.service';
-import { CommonService } from './../../services/common.service';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-carousel',

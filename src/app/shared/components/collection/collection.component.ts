@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from '../../../shared/services/cart.service';
-import { LocalStorageService } from '../../../shared/services/localStorage.service';
-import { CurrencyService } from './../../../shared/services/currency.service';
-import { GoogleAnalyticsEventsService } from './../../../shared/services/google-analytics-events-service';
-import { AuthService } from './../../services/auth.service';
-import { BannerService } from './../../services/banner.service';
-import { CommonService } from './../../services/common.service';
+import { CartService } from '../../services/cart.service';
+import { LocalStorageService } from '../../services/localStorage.service';
+import { CurrencyService } from '../../services/currency.service';
+import { GoogleAnalyticsEventsService } from '../../services/google-analytics-events-service';
+import { AuthService } from '../../services/auth.service';
+import { BannerService } from '../../services/banner.service';
+import { CommonService } from '../../services/common.service';
 
 
 @Component({
@@ -93,6 +93,7 @@ export class CollectionComponent implements OnInit {
     if (this.loggedIn) {
       this.wishlistButtonUpdate(i);
     } else {
+      this.authService.redirectUrl = '/wishlist';
       this.bannerService.showModal.subscribe((condition) => {
         this.showModal = condition;
       });

@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs/Subscription';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from './../../shared/services/auth.service';
-import { BannerService } from './../../shared/services/banner.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { BannerService } from '../../shared/services/banner.service';
 
 @Component({
   selector: 'app-signup',

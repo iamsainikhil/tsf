@@ -1,4 +1,4 @@
-import { AuthService } from './../../../shared/services/auth.service';
+import { AuthService } from '../../../shared/services/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NguCarousel } from '@ngu/carousel';

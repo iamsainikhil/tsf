@@ -5,7 +5,7 @@ import { CartService } from '../../../shared/services/cart.service';
 import { CommonService } from '../../../shared/services/common.service';
 import { CurrencyService } from '../../../shared/services/currency.service';
 import { LocalStorageService } from '../../../shared/services/localStorage.service';
-import { GoogleAnalyticsEventsService } from './../../../shared/services/google-analytics-events-service';
+import { GoogleAnalyticsEventsService } from '../../../shared/services/google-analytics-events-service';
 
 @Component({
   selector: 'app-cart-page',

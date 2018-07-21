@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CurrencyService } from '../../services/currency.service';
 import { LocalStorageService } from '../../services/localStorage.service';
-import { AuthService } from './../../services/auth.service';
-import { BannerService } from './../../services/banner.service';
-import { GoogleAnalyticsEventsService } from './../../services/google-analytics-events-service';
+import { AuthService } from '../../services/auth.service';
+import { BannerService } from '../../services/banner.service';
+import { GoogleAnalyticsEventsService } from '../../services/google-analytics-events-service';
 
 @Component({
   selector: 'app-item',

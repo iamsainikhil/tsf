@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Ip } from '../../models/ip';
 import { CurrencyService } from '../../services/currency.service';
-import { AuthService } from './../../services/auth.service';
-import { CartService } from './../../services/cart.service';
-import { GoogleAnalyticsEventsService } from './../../services/google-analytics-events-service';
+import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
+import { GoogleAnalyticsEventsService } from '../../services/google-analytics-events-service';
 
 @Component({
   selector: 'app-site-header',

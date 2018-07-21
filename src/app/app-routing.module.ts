@@ -1,3 +1,4 @@
+import { AllowGuardService } from './shared/services/allow-guard.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about/about.component';
@@ -25,8 +26,8 @@ const routes: Routes = [
   {path: 'shop', component: CategoriesComponent, pathMatch: 'full'},
   {path: 'about', component: AboutComponent, pathMatch: 'full'},
   {path: 'contact', component: ContactComponent, pathMatch: 'full'},
-  {path: 'login', component: LoginComponent, pathMatch: 'full'},
-  {path: 'signup', component: SignupComponent, pathMatch: 'full'},
+  {path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [AllowGuardService]},
+  {path: 'signup', component: SignupComponent, pathMatch: 'full', canActivate: [AllowGuardService]},
   {path: 'sweets', component: SweetsPageComponent, pathMatch: 'full'},
   {path: 'sweets/:id', component: ItemPageComponent, pathMatch: 'full'},
   {path: 'savories', component: SavoriesPageComponent, pathMatch: 'full'},
