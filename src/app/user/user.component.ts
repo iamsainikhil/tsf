@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { AuthService } from './../shared/services/auth.service';
-import { CommonService } from './../shared/services/common.service';
+import { AuthService } from '../shared/services/auth.service';
+import { CommonService } from '../shared/services/common.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   showLoader = true;
   userData: any;
 
@@ -24,8 +24,6 @@ export class UserComponent implements OnInit {
       if (condition) {
         const userId = this.authService.currentUserId;
         this.getUserData(userId);
-      } else {
-        this.subscription.unsubscribe();
       }
     });
   }
@@ -36,6 +34,12 @@ export class UserComponent implements OnInit {
       this.userData = this.commonService.getDocumentData('users', id);
       this.showLoader = false;
     });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription !== undefined) {
+      this.subscription.unsubscribe();
+    }
   }
 
 }

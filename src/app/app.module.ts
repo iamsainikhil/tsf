@@ -1,4 +1,5 @@
-import { environment } from './../environments/environment';
+import { AllowGuardService } from './shared/services/allow-guard.service';
+import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -128,6 +129,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     LocalStorageService,
     CommonService,
     ContactService,
+    AllowGuardService
   ],
   bootstrap: [AppComponent]
 })

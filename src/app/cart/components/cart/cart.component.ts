@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../../shared/services/cart.service';
 import { LocalStorageService } from '../../../shared/services/localStorage.service';
-import { BannerService } from './../../../shared/services/banner.service';
-import { GoogleAnalyticsEventsService } from './../../../shared/services/google-analytics-events-service';
+import { BannerService } from '../../../shared/services/banner.service';
+import { GoogleAnalyticsEventsService } from '../../../shared/services/google-analytics-events-service';
 
 @Component({
   selector: 'app-cart',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GoogleAnalyticsEventsService } from './../../../shared/services/google-analytics-events-service';
+import { GoogleAnalyticsEventsService } from '../../../shared/services/google-analytics-events-service';
 
 
 @Component({

@@ -7,7 +7,6 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-
   constructor(
     private afAuth: AngularFireAuth,
     private authService: AuthService,
@@ -17,13 +16,19 @@ export class AuthGuardService implements CanActivate {
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+      const url = state.url;
       return this.afAuth.authState.map((auth) =>  {
-          if (auth === null) {
-            this.router.navigate(['/login']);
-            return false;
-          } else {
-            return true;
-          }
+        return this.checkLogin(url, auth);
         });
+    }
+
+    checkLogin(url: string, auth: any): boolean {
+     if (auth !== null) {
+       return true;
+     } else {
+       this.authService.redirectUrl = url;
+       this.router.navigate(['login']);
+       return false;
+     }
     }
 }

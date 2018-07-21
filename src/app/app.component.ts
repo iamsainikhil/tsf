@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { PageScrollConfig } from 'ngx-page-scroll';
 import 'rxjs/add/operator/distinctUntilChanged';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { GoogleAnalyticsEventsService } from './shared/services/google-analytics-events-service';
 import { NgwWowService } from 'ngx-wow';
 

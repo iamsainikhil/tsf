@@ -18,6 +18,9 @@ export class AuthService {
 
   authState: any = null;
 
+  // store the URL from authGuard so we can redirect after logging in
+  redirectUrl = '/user';
+
   // error messages
   public loginErrorMessage = new BehaviorSubject<string>('');
   public signupErrorMessage = new BehaviorSubject<string>('');
@@ -200,7 +203,7 @@ export class AuthService {
         this.afAuth.auth.signOut()
         .then(() => {
             this.logged.next(false);
-            this.router.navigateByUrl('/login');
+            this.router.navigate(['login']);
         });
     }
 
@@ -234,14 +237,14 @@ export class AuthService {
             // document exist & document update successful
             // redirect loggedIn users to user only page after login
             this.logged.next(true);
-            this.router.navigate(['/user']);
+            this.router.navigate([this.redirectUrl]);
         })
         .catch((error) => {
             // document doesn't exist
             this.afs.doc(path).set(data);
             // redirect loggedIn users to user only page after login
             this.logged.next(true);
-            this.router.navigate(['/user']);
+            this.router.navigate([this.redirectUrl]);
         });
 
     }
