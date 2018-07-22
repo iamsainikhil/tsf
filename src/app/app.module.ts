@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { NgwWowModule } from 'ngx-wow';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { AboutComponent } from './about/about/about.component';
 import { ContactComponent } from './about/contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -115,6 +116,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     AgmCoreModule.forRoot({
       apiKey: environment.mapsKey
     }),
+    AgmSnazzyInfoWindowModule,
     NgwWowModule.forRoot()
   ],
   providers: [

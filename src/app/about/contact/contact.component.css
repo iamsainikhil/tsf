@@ -12,40 +12,6 @@
 }
 
 
-/* contact information */
-
-.information {
-    font-family: 'Mont Regular', sans-serif;
-    letter-spacing: 1px;
-    border: 1px solid #f5f5f5;
-    border-radius: 15px;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
-
-.information i {
-    margin-top: 2px;
-}
-
-.address-wrapper,
-.phone-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    text-align: left;
-    padding: 20px;
-}
-
-.address-wrapper p,
-.phone-wrapper p {
-    padding-right: 10px;
-}
-
-.phone-wrapper .button {
-    margin-top: -5px;
-}
-
-
 /* contact form */
 
 .form {
@@ -99,6 +65,64 @@
     height: 75px;
 }
 
+
+/* contact information */
+
+.title-wrapper,
+.address-wrapper,
+.phone-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    text-align: left;
+    color: #808080;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.title-wrapper i,
+.address-wrapper i,
+.phone-wrapper i {
+    margin-top: -1px;
+    padding-right: 10px;
+}
+
+.phone-wrapper {
+    padding-top: 5px;
+}
+
+
+/* map window */
+
+::selection {
+    background: #808080;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #808080;
+    color: #fff;
+}
+
+.custom-window {
+    /* to have the offset for info window from the site-header */
+    top: 50;
+}
+
+.custom-window .si-content-wrapper {
+    display: none;
+}
+
+.window-wrapper {
+    font-family: 'Mont Medium', sans-serif;
+    width: 350px;
+    padding: 10px;
+}
+
+.marker:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 767px) {
     .sub-title {
         font-size: 18px;
@@ -115,6 +139,15 @@
     .success-message .button {
         font-size: 12px;
     }
+    /* map */
+    .map {
+        height: 80vh;
+        width: 100%;
+    }
+    /* info window */
+    .window-wrapper {
+        width: 300px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -126,6 +159,16 @@
     }
     .information {
         margin: 20px auto;
+    }
+    .map {
+        height: 80vh;
+        width: 100%;
+        position: relative;
+        z-index: -1;
+    }
+    .marker {
+        position: absolute;
+        z-index: 1;
     }
 }
 
