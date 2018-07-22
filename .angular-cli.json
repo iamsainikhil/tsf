@@ -20,7 +20,8 @@
         "styles": [
             "styles.css",
             "spectre.min.css",
-            "spectre-exp.min.css"
+            "spectre-exp.min.css",
+            "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
         ],
         "scripts": [
             "../node_modules/wowjs/dist/wow.min.js"
