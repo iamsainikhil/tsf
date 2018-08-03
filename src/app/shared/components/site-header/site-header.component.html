@@ -1,5 +1,5 @@
 <div appScrollable (scrollDirection)="getPosition($event)" [ngClass]="{'sticky slide-bottom': !showHeader}">
-    <div class="mobile" [ngClass]="{'non-sticky slide-bottom': animateHeader}">
+    <div class="mobile gradient-fade" [ngClass]="{'non-sticky slide-bottom': animateHeader}">
         <div class="logo" routerLink="/" (click)="mobileLogoClick()">
             Telangana Swagruha Foods
         </div>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="desktop" [ngClass]="{'non-sticky slide-bottom': animateHeader}">
+    <div class="desktop gradient-fade" [ngClass]="{'non-sticky slide-bottom': animateHeader}">
         <div class="logo" routerLink="/">
             Telangana Swagruha Foods
         </div>

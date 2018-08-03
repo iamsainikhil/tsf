@@ -7,19 +7,27 @@
     padding: 20px;
 }
 
+.browse-items {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+}
+
 .card-item {
     font-family: 'Mont Medium', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1px solid transparent;
     border-radius: 15px;
-    background-color: #f5f5f5;
-    color: #808080;
+    background-color: #dcdcdc;
+    color: #353839;
     padding: 20px;
 }
 
 .card-item:hover {
     cursor: pointer;
+    border: none;
     background: rgb(254, 1, 116);
     background: linear-gradient(90deg, rgba(254, 1, 116, 1) 0%, rgba(255, 81, 81, 1) 100%);
     background: -moz-linear-gradient(90deg, rgba(254, 1, 116, 1) 0%, rgba(255, 81, 81, 1) 100%);

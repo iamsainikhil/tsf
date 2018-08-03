@@ -1,17 +1,23 @@
-<h2 class="title">Frequently&nbsp;Asked&nbsp;Questions</h2>
+<div class="container grid-lg">
+    <div class="columns">
+        <div class="column centered">
+            <h2 class="title">Frequently&nbsp;Asked&nbsp;Questions</h2>
 
-<app-site-loader *ngIf="showLoader"></app-site-loader>
+            <app-site-loader *ngIf="showLoader"></app-site-loader>
 
-<div class="wrapper" *ngIf="!showLoader">
-    <div class="content" *ngFor="let item of data | async; let i = index;">
-        <div class="content-card" (click)="questionClick(i)">
-            <div class="question-content">
-                <p class="question">{{item.data.question}}?</p>
-                <p class="icon arrow-down" *ngIf="!indexAdded.includes(i)"></p>
-                <p class="icon arrow-up" *ngIf="indexAdded.includes(i)"></p>
-            </div>
-            <div class="answer" *ngIf="indexAdded.includes(i)">
-                <p>{{item.data.answer}}</p>
+            <div class="wrapper" *ngIf="!showLoader">
+                <div class="content" *ngFor="let item of data | async; let i = index;">
+                    <div class="content-card" (click)="questionClick(i)">
+                        <div class="question-content">
+                            <p *ngIf="!indexAdded.includes(i)"><i class="material-icons">keyboard_arrow_right</i></p>
+                            <p *ngIf="indexAdded.includes(i)"><i class="material-icons">keyboard_arrow_down</i></p>
+                            <p class="question">{{item.data.question}}?</p>
+                        </div>
+                        <div class="answer" *ngIf="indexAdded.includes(i)">
+                            <p>{{item.data.answer}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

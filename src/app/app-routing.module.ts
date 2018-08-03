@@ -1,4 +1,3 @@
-import { AllowGuardService } from './shared/services/allow-guard.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about/about.component';
@@ -8,17 +7,21 @@ import { SignupComponent } from './authentication/signup/signup.component';
 import { CartPageComponent } from './cart/pages/cart-page/cart-page.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FaqComponent } from './faq/faq.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 import { FlavorsPageComponent } from './flavors/pages/flavors-page/flavors-page.component';
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PicklesPageComponent } from './pickles/pages/pickles-page/pickles-page.component';
 import { PowdersPageComponent } from './powders/pages/powders-page/powders-page.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { SavoriesPageComponent } from './savories/pages/savories-page/savories-page.component';
 import { ItemPageComponent } from './shared/pages/item-page/item-page.component';
+import { AllowGuardService } from './shared/services/allow-guard.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { SweetsPageComponent } from './sweets/pages/sweets-page/sweets-page.component';
+import { TermsComponent } from './terms/terms.component';
 import { UserComponent } from './user/user.component';
 import { WishlistPageComponent } from './wishlist/pages/wishlist-page/wishlist-page.component';
-import { FeedbackComponent } from './feedback/feedback.component';
 
 
 const routes: Routes = [
@@ -58,7 +61,10 @@ const routes: Routes = [
   canActivate: [AuthGuardService]
   },
   {path: 'frequently-asked-questions', component: FaqComponent, pathMatch: 'full'},
-  {path: '**', redirectTo: 'login'}
+  {path: 'privacy-policy', component: PrivacyPolicyComponent, pathMatch: 'full'},
+  {path: 'terms-of-service', component: TermsComponent, pathMatch: 'full'},
+  {path: '404', component: PageNotFoundComponent, pathMatch: 'full'},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({
