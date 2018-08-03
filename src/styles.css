@@ -126,6 +126,7 @@ select:focus {
 
 .card-container .card:hover {
     box-shadow: 0 12px 10px 0 rgba(0, 0, 0, .24), 0 12px 50px 0 rgba(0, 0, 0, .19);
+    border: none;
 }
 
 .page-content {
@@ -526,8 +527,8 @@ select:focus {
     justify-content: center;
 }
 
-.form-wrapper .submit-button,
-.form-wrapper .submit-button:disabled:hover {
+.submit-button,
+.submit-button:disabled:hover {
     font-family: 'Mont Medium', sans-serif;
     border: 1px solid #f5f5f5;
     background: #f5f5f5;
@@ -538,7 +539,7 @@ select:focus {
     padding: 10px 20px;
 }
 
-.form-wrapper .submit-button:hover {
+.submit-button:hover {
     cursor: pointer;
     background: rgb(254, 1, 116);
     background: linear-gradient(90deg, rgba(254, 1, 116, 1) 0%, rgba(255, 81, 81, 1) 100%);
@@ -552,7 +553,7 @@ select:focus {
     -o-transition: all 0.3s ease-in-out;
 }
 
-.form-wrapper .submit-button:disabled {
+.submit-button:disabled {
     cursor: not-allowed;
 }
 
@@ -605,7 +606,91 @@ select:focus {
 }
 
 
+/* legal (terms, privacy, disclaimer) */
+
+.legal-wrapper {
+    color: #353839;
+    padding: 20px;
+}
+
+.legal-title {
+    text-align: center;
+    font-family: 'Mont Medium', sans-serif;
+    letter-spacing: 1px;
+    padding-top: 20px;
+}
+
+.legal-content {
+    text-align: left;
+    font-family: 'Mont Regular', sans-serif;
+}
+
+.legal-content h2,
+.legal-content h3,
+.legal-content h4,
+.legal-content h5 {
+    font-family: 'Mont Medium', sans-serif;
+}
+
+.legal-content ol {
+    list-style: none;
+}
+
+.legal-content ul {
+    list-style: disc;
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+.legal-content a {
+    color: #fe0174;
+}
+
+.legal-content a:hover {
+    color: #ff5151;
+}
+
+@media only screen and (max-width: 400px) {
+    .legal-content a {
+        font-size: 12px;
+    }
+}
+
+
 /* animations */
+
+.gradient-fade {
+    background: #fe0174;
+    background: linear-gradient(180deg, #fe0174, #ff5151);
+    background: -webkit-linear-gradient(180deg, #fe0174, #ff5151);
+    background-size: 400% 400%;
+    -webkit-animation: gradientFade 8s ease-in-out infinite;
+    animation: gradientFade 8s ease-in-out infinite;
+}
+
+@keyframes gradientFade {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@-webkit-keyframes gradientFade {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
 
 .slide-bottom {
     -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

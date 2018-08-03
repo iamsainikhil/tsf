@@ -41,6 +41,11 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  shopAll() {
+    this.googleAnalyticsEventsService.emitEvent('browse-all-items', 'shop', 'button');
+    this.router.navigate(['shop']);
+  }
+
   filterCondition(e) {
     if (e) {
       this.showFilter = true;

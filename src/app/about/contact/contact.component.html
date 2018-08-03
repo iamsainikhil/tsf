@@ -1,83 +1,79 @@
-<!-- <h2 class="title">Contact</h2>
-<h3 class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, animi!</h3>
-<div class="wrapper">
-    <div class="information">
-        <h4 class="wrapper-title">Information</h4>
-        <div class="address-wrapper">
-            <p><i class="material-icons">room</i></p>
-            <p>Near Meher Baba Temple, Meher Nagar, Road No 5, Bank Colony, Karimnagar, Telanagana-505001, India</p>
-        </div>
-        <div class="phone-wrapper">
-            <p><i class="material-icons">call</i></p>
-            <p *ngIf="!revealNumber"><button class="button" (click)="onReveal()">Reveal&nbsp;Phone&nbsp;Number</button></p>
-            <p *ngIf="revealNumber">+91&nbsp;8008804336, +91&nbsp;8186096664</p>
-        </div>
-    </div>
-    <div class="form">
-        <div *ngIf="!successMessage">
-            <h4 class="wrapper-title">Contact Form</h4>
-            <div class="form-wrapper">
-                <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
-                    <div class="form-group">
-                        <input class="form-input" type="email" id="email" placeholder="Email" autocomplete='email' ngModel required name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+<div class="container grid-xl">
+    <div class="columns">
+        <div class="column">
+            <h2 class="title">Contact Us</h2>
+            <h3 class="sub-title">Submit your orders or inquiries here and will get back to you as soon as possible.</h3>
+
+            <div class="wrapper">
+                <div class="contact-form-wrapper gradient-fade">
+                    <div class="form">
+                        <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+                            <div class="form-group">
+                                <input class="form-input" type="text" id="name" placeholder="Name" autocomplete='name' ngModel required name="name" #name="ngModel">
+                            </div>
+                            <div [hidden]="name.valid || !name.touched">
+                                <span class="error" [hidden]="!name.hasError('required')">Name is required!</span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-input" type="email" id="email" placeholder="Email" autocomplete='email' ngModel required name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                            </div>
+                            <div [hidden]="email.valid || !email.touched">
+                                <span class="error" *ngIf="email.hasError('pattern') || email.dirty">Please, enter a valid email address!</span>
+                                <span class="error" [hidden]="!email.hasError('required')">Email is required!</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-input" type="text" id="message" placeholder="Message" ngModel required name="message" #message="ngModel">
+                            </textarea>
+                            </div>
+                            <div [hidden]="message.valid || !message.touched">
+                                <span class="error" [hidden]="!message.hasError('required')">Message is required!</span>
+                            </div>
+                            <div class="form-group">
+                                <div class="accept-checkbox">
+                                    <p class="legal-accept" (click)="acceptLegal()">
+                                        <i class="material-icons" *ngIf="!legalAccept">check_box_outline_blank</i>
+                                        <i class="material-icons" *ngIf="legalAccept">check_box</i>
+                                    </p>
+                                    <p class="legal-text">I have read and accept
+                                        <a href="/terms-of-service" target="_blank">Terms</a>&nbsp;&&nbsp;
+                                        <a href="/privacy-policy" target="_blank">Privacy&nbsp;Policy</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group form-button">
+                                <button type="submit" class="submit-button" [disabled]="!f.valid">send</button>
+                            </div>
+                        </form>
                     </div>
-                    <div [hidden]="email.valid || !email.touched">
-                        <span class="error" *ngIf="email.hasError('pattern') || email.dirty">Please, enter a valid email address!</span>
-                        <span class="error" [hidden]="!email.hasError('required')">Email is required!</span>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-input" type="text" id="message" placeholder="Message" ngModel required name="message" #message="ngModel">
-                        </textarea>
-                    </div>
-                    <div [hidden]="message.valid || !message.touched">
-                        <span class="error" [hidden]="!message.hasError('required')">Message is required!</span>
-                    </div>
-                    <div class="form-button-group">
-                        <button type="submit" class="submit-button" [disabled]="!f.valid">send</button>
-                    </div>
-                </form>
+                </div>
+                <div class="map-wrapper">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" class="map gradient-fade" #AgmMap>
+                        <agm-marker [latitude]="lat" [longitude]="lng" class="marker">
+                            <agm-snazzy-info-window [isOpen]="openWindow" [latitude]="lat" [longitude]="lng" [borderRadius]="borderRadius" [maxHeight]="maxHeight" [maxWidth]="maxWidth" [padding]="padding">
+                                <ng-template>
+                                    <div class="window-wrapper">
+                                        <div class="title-wrapper">
+                                            <p><i class="material-icons">store</i></p>
+                                            <p class="store-title">Telangana&nbsp;Swagruha&nbsp;Foods</p>
+                                        </div>
+                                        <div class="address-wrapper">
+                                            <p><i class="material-icons">room</i></p>
+                                            <p class="address">
+                                                Near Meher Baba Temple, Meher Nagar, Road No 5, Bank Colony, Karimnagar, Telanagana-505001, India
+                                            </p>
+                                        </div>
+                                        <div class="phone-wrapper">
+                                            <p><i class="material-icons">call</i></p>
+                                            <p *ngIf="!revealNumber"><button class="button" (click)="onReveal()">Reveal&nbsp;Phone&nbsp;Number</button></p>
+                                            <p *ngIf="revealNumber" class="number">+91&nbsp;8008804336, +91&nbsp;8186096664</p>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </agm-snazzy-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </div>
             </div>
         </div>
-
-        
-        <div class="success-message" *ngIf="successMessage">
-            <div class="empty">
-                <div class="empty-icon">
-                    <p class="email-success"></p>
-                </div>
-                <p class="empty-title h5">Message has been sent successfully!</p>
-                <div class="empty-action centered">
-                    <button class="button" (click)="showForm()">Send&nbsp;another&nbsp;message</button>
-                </div>
-            </div>
-        </div>
     </div>
-</div> -->
-
-<div class="map-wrapper">
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" class="map" #AgmMap>
-        <agm-marker [latitude]="lat" [longitude]="lng" class="marker">
-            <agm-snazzy-info-window [isOpen]="true" [latitude]="lat" [longitude]="lng" [borderRadius]="borderRadius" [maxHeight]="maxHeight" [maxWidth]="maxWidth" [padding]="padding" [wrapperClass]="wrapperClass">
-                <ng-template>
-                    <div class="window-wrapper">
-                        <div class="title-wrapper">
-                            <p><i class="material-icons">store</i></p>
-                            <p class="store-title">Telangana&nbsp;Swagruha&nbsp;Foods</p>
-                        </div>
-                        <div class="address-wrapper">
-                            <p><i class="material-icons">room</i></p>
-                            <p class="address">
-                                Near Meher Baba Temple, Meher Nagar, Road No 5, Bank Colony, Karimnagar, Telanagana-505001, India
-                            </p>
-                        </div>
-                        <div class="phone-wrapper">
-                            <p><i class="material-icons">call</i></p>
-                            <!-- <p *ngIf="!revealNumber"><button class="button" (click)="onReveal()">Reveal&nbsp;Phone&nbsp;Number</button></p> -->
-                            <p *ngIf="!revealNumber" class="number">+91&nbsp;8008804336, +91&nbsp;8186096664</p>
-                        </div>
-                    </div>
-                </ng-template>
-            </agm-snazzy-info-window>
-        </agm-marker>
-    </agm-map>
 </div>

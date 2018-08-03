@@ -1,46 +1,168 @@
-.sub-title,
-.wrapper {
-    text-align: center;
-}
-
 .sub-title {
-    font-family: 'Mont Medium', sans-serif;
-}
-
-.wrapper-title {
-    font-family: 'Mont Regular', sans-serif;
+    font-family: Mont Medium, sans-serif;
+    font-style: italic;
+    text-align: center;
+    color: #50596c;
+    padding: 0 10px;
 }
 
 
 /* contact form */
 
+.contact-form-wrapper,
 .form {
-    padding: 20px;
+    display: grid;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
-.form-wrapper .error {
+.contact-form-wrapper {
+    grid-template-columns: 1fr;
+    -ms-grid-rows: 100%;
+    grid-template-rows: 100%;
+    -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, .2), 0 40px 77px 0 rgba(0, 0, 0, .22);
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, .2), 0 40px 77px 0 rgba(0, 0, 0, .22);
+    width: 100%;
+    height: 60vh;
+    border: 1px solid transparent;
+}
+
+.form {
+    padding: 20px;
+    height: 55vh;
+    background-color: #f3f2f2;
+    width: 325px;
+    -webkit-box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .22), 0 25px 55px 0 rgba(0, 0, 0, .21);
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .22), 0 25px 55px 0 rgba(0, 0, 0, .21);
+}
+
+.form-group {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Mont Light', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid transparent!important;
+    border-radius: 15px;
+    background: #fe0174;
+    background: linear-gradient(210deg, #fe0174, #ff5151);
+    background: -webkit-linear-gradient(210deg, #fe0174, #ff5151);
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #fff;
+}
+
+.error {
     justify-content: left;
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-bottom: 0;
+}
+
+.form-button {
+    padding-top: 0;
+}
+
+.submit-button,
+.submit-button:disabled:hover,
+.submit-button:hover {
+    width: 100%;
+    border-radius: 15px;
+    border-color: transparent;
+    background: #fe0174;
+    background: linear-gradient(210deg, #fe0174, #ff5151);
+    background: -webkit-linear-gradient(210deg, #fe0174, #ff5151);
+    color: #fff;
+}
+
+
+/* accept checkbox */
+
+.accept-checkbox {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    padding-left: 5px;
+}
+
+.legal-accept:hover {
+    cursor: pointer;
+}
+
+.legal-text {
+    font-family: 'Mont Regular', sans-serif;
+    letter-spacing: 1px;
+    color: #000;
+    padding-left: 5px;
+    padding-top: 1px;
+}
+
+.legal-text a {
+    position: relative;
+    text-decoration: none;
+    color: gray;
+}
+
+.legal-text a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #000;
+    visibility: hidden;
+    border-radius: 10px;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all .3s cubic-bezier(.25, .46, .45, .94);
+    transition: all .3s cubic-bezier(.25, .46, .45, .94);
+}
+
+.legal-text a:hover {
+    color: #000;
+}
+
+.legal-text a:hover::before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 
 /* success message */
 
 .button {
-    border: 1px solid #808080;
-    background-color: #f5f5f5;
-    color: #808080;
+    border: 1px solid #50596c;
+    background-color: #f3f2f2;
+    color: #50596c;
     font-family: 'Mont Medium', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 300px;
-    padding: 10px 20px;
+    width: 225px;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -2px;
 }
 
 .button:hover {
     cursor: pointer;
-    background-color: #808080;
-    color: #fff;
+    background-color: #50596c;
+    color: #f3f2f2;
 }
 
 .empty-icon {
@@ -75,20 +197,37 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     text-align: left;
-    color: #808080;
+    color: #50596c;
     font-size: 16px;
     letter-spacing: 0.5px;
+}
+
+.store-title {
+    margin-top: 2px;
 }
 
 .title-wrapper i,
 .address-wrapper i,
 .phone-wrapper i {
     margin-top: -1px;
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 .phone-wrapper {
     padding-top: 5px;
+}
+
+
+/* map */
+
+.map-wrapper {
+    -webkit-box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .22), 0 25px 55px 0 rgba(0, 0, 0, .21);
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .22), 0 25px 55px 0 rgba(0, 0, 0, .21);
+}
+
+.map {
+    height: 60vh;
+    width: 100%;
 }
 
 
@@ -104,23 +243,32 @@
     color: #fff;
 }
 
-.custom-window {
-    /* to have the offset for info window from the site-header */
-    top: 50;
-}
-
-.custom-window .si-content-wrapper {
-    display: none;
-}
-
 .window-wrapper {
     font-family: 'Mont Medium', sans-serif;
-    width: 350px;
+    width: 500px;
     padding: 10px;
+    word-wrap: break-word;
 }
 
 .marker:hover {
     cursor: pointer;
+}
+
+
+/* info window */
+
+.window-wrapper {
+    width: 300px;
+}
+
+@media only screen and (max-width: 359px) {
+    .title-wrapper,
+    .address-wrapper,
+    .phone-wrapper,
+    .button {
+        font-size: 12px !important;
+        width: 200px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -130,55 +278,43 @@
     .wrapper {
         display: grid;
         grid-template-columns: 100%;
-        padding: 10px;
+    }
+    .contact-form-wrapper {
+        height: 80vh;
+        padding: 20px;
+    }
+    .form {
+        height: 70vh;
     }
     .button {
         font-size: 14px;
-        width: 240px;
     }
     .success-message .button {
         font-size: 12px;
-    }
-    /* map */
-    .map {
-        height: 80vh;
-        width: 100%;
-    }
-    /* info window */
-    .window-wrapper {
-        width: 300px;
     }
 }
 
 @media only screen and (min-width: 768px) {
     .wrapper {
+        display: -ms-grid;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        text-align: center;
-        padding: 40px;
-    }
-    .information {
-        margin: 20px auto;
-    }
-    .map {
-        height: 80vh;
-        width: 100%;
-        position: relative;
-        z-index: -1;
-    }
-    .marker {
-        position: absolute;
-        z-index: 1;
+        -ms-grid-columns: 45% 45%;
+        grid-template-columns: 45% 45%;
+        grid-gap: 0;
+        margin: 50px auto;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .form-wrapper {
-        width: 500px;
+    .form {
+        width: 400px;
     }
-    .form-wrapper input,
-    .form-wrapper textarea,
-    .form-wrapper button {
-        width: 500px;
+    .form-group input,
+    .form-group textarea,
+    .form-group button {
+        width: 350px;
     }
 }

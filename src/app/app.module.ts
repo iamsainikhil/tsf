@@ -60,6 +60,9 @@ import { ForgotPasswordComponent } from './authentication/forgot-password/forgot
 import { PricePipe } from './shared/pipes/price.pipe';
 import { WordExtractPipe } from './shared/pipes/word-extract.pipe';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsComponent } from './terms/terms.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 // plugins
@@ -101,7 +104,10 @@ import { FeedbackComponent } from './feedback/feedback.component';
     ForgotPasswordComponent,
     PricePipe,
     WordExtractPipe,
-    FeedbackComponent
+    FeedbackComponent,
+    PrivacyPolicyComponent,
+    TermsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,9 @@
 
     <section>
         <app-popular></app-popular>
+        <div class="browse-items" *ngIf="showFilter">
+            <p class="card-item wow fade-in-bottom" (click)="shopAll()">Browse All Items</p>
+        </div>
     </section>
 
     <section class="testimonials">
