@@ -654,6 +654,10 @@ select:focus {
     .legal-content a {
         font-size: 12px;
     }
+    .legal-title {
+        font-size: 32px;
+        padding-bottom: 20px;
+    }
 }
 
 
