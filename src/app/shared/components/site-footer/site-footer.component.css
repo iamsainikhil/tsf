@@ -44,7 +44,8 @@ select {
 .copyrights {
     color: #808080;
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
+    margin-bottom: 0;
 }
 
 .special-button {
@@ -78,6 +79,114 @@ select {
     border-radius: 50%;
 }
 
+
+/* social icons */
+
+.social-text {
+    color: #fff;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.social-icons svg {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+
+.social-icons svg:hover {
+    cursor: pointer;
+}
+
+.f-t,
+.g-t {
+    fill: #353839;
+}
+
+
+/* facebook, twitter, instagram, google business */
+
+.f-i {
+    fill: #485A96;
+}
+
+.facebook:hover .f-t {
+    fill: #fff;
+}
+
+.i-0 {
+    fill: url(#SVGID_1);
+}
+
+.i-1 {
+    fill: url(#SVGID_2);
+}
+
+.i-c {
+    fill: url(#SVGID_3);
+}
+
+.instagram:hover .i-0,
+.instagram:hover .i-c {
+    fill: url(#SVGID_H);
+}
+
+.t-i {
+    fill: #76A9EA;
+}
+
+.twitter:hover .t-i {
+    fill: #1da1f2;
+}
+
+.g-i {
+    fill: #518EF8;
+}
+
+.g-s {
+    fill: #4786E2;
+}
+
+.g-h-1,
+.g-h-3 {
+    fill: #ACD1FC;
+}
+
+.g-h-2,
+.g-h-4 {
+    fill: #3A5BBC;
+}
+
+.google-b:hover .g-h-1,
+.google-b:hover .g-h-3 {
+    fill: #EEA3B1;
+}
+
+.google-b:hover .g-h-2,
+.google-b:hover .g-h-4 {
+    fill: #fe0174;
+}
+
+.google-b:hover .g-s {
+    fill: #E29899;
+    fill-opacity: 0.4;
+}
+
+.google-b:hover .g-i {
+    fill: #FD137D;
+}
+
+.google-b:hover .g-t {
+    fill: #fff;
+}
+
+@media only screen and (max-width: 359px) {
+    .copyrights {
+        word-wrap: break-word;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .wrapper {
         padding-left: 30%;
@@ -87,7 +196,15 @@ select {
     }
     .copyrights {
         font-size: 12px;
-        padding: 0px;
+        padding: 10px 0 0 0;
+    }
+    .social-wrapper {
+        text-align: center;
+        padding: 10px;
+    }
+    .social-text {
+        font-style: italic;
+        margin-bottom: 2px;
     }
 }
 
@@ -97,5 +214,11 @@ select {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
+    }
+    .social-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
     }
 }
